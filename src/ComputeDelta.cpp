@@ -70,6 +70,7 @@ XID_DOMDocument* XidXyDiff(XID_DOMDocument* v0XML, const char *doc1name, XID_DOM
 	TRACE("PHASE 3: Optimize matchings");
 	xyMappingEngine.Optimize( v0rootID );
 	
+	xyMappingEngine.PrintAll()
 	/* ---- [[ Phase 4: ]] Construct the Delta ---- */
 		
 	vddprintf(("\n+++ Phase 4: Construct the Delta +++\n\n")) ;

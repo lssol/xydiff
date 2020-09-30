@@ -63,13 +63,14 @@ void NodesManager::PrintAll(void) {
 	printf("XML document Source(v0): %d assigned nodes over total of %d\n", sourceAssigned, sourceNumberOfNodes) ;
 	printf("XML document Source(v1): %d assigned nodes over total of %d\n", resultAssigned, resultNumberOfNodes) ;
 	
-	vddprintf(("List of v0->v1 assignements\n")) ;
+	printf("*** List of v0->v1 assignements\n");
 	unsigned long i;
 	for(i=1; i<sourceNumberOfNodes; i++) {
 		if (!v0Assigned(i)) vddprintf(("%4d not matched(delete)\n", (int)i )) ;
-		else vddprintf(("%4d->%4d\n", (int)i, (int) v0node[i].myMatchID ));
+		else printf("%4d->%4d\n", (int)i, (int) v0node[i].myMatchID );
 		}
 		
+	printf("***");
 	vddprintf(("List of v1->v0 assignements\n")) ;
 	for(i=1; i<resultNumberOfNodes; i++) {
 	  if (!v1Assigned(i)) vddprintf(("%4d not matched(insert)", (int)i )) ;

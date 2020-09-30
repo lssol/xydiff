@@ -1,3 +1,7 @@
+This specific fork of xydiff aims to add support for matching.
+
+---------
+
 xydiff
 ======
 
