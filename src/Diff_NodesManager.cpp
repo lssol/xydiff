@@ -67,14 +67,14 @@ void NodesManager::PrintAll(void) {
 	unsigned long i;
 	for(i=1; i<sourceNumberOfNodes; i++) {
 		if (!v0Assigned(i)) vddprintf(("%4d not matched(delete)\n", (int)i )) ;
-		else printf("%4d->%4d\n", (int)i, (int) v0node[i].myMatchID );
+		else printf("%4d:%4d\n", (int)i, (int) v0node[i].myMatchID );
 		}
 		
 	printf("***");
 	vddprintf(("List of v1->v0 assignements\n")) ;
 	for(i=1; i<resultNumberOfNodes; i++) {
 	  if (!v1Assigned(i)) vddprintf(("%4d not matched(insert)", (int)i )) ;
-		else vddprintf(("%4d->%4d\n", (int)i, (int) v1node[i].myMatchID ));
+		else vddprintf(("%4d:%4d\n", (int)i, (int) v1node[i].myMatchID ));
 		}
   }
 	
@@ -278,7 +278,7 @@ int NodesManager::registerSubtree(DOMNode *node, bool isSource) {
 			break ;
 			
 		case DOMNode::TEXT_NODE:
-		case DOMNode::CDATA_SECTION_NODE:
+		// case DOMNode::CDATA_SECTION_NODE:
                   myAtomicInfo.mySubtreeHash   = hash32(node->getNodeValue());
 			myAtomicInfo.myOwnHash.value = 0x0 ;
 			if (XMLString::stringLen(node->getNodeValue())>0) myAtomicInfo.myWeight+=(float)log((double)XMLString::stringLen(node->getNodeValue()));

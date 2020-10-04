@@ -348,8 +348,10 @@ void XID_DOMDocument::parseDOM_Document(const char* xmlfile, bool doValidation) 
 		DOMErrorHandler * handler = new xydeltaParseHandler();
 		if (theParser->getDomConfig()->canSetParameter(XMLUni::fgDOMValidate, doValidation))
 			theParser->getDomConfig()->setParameter(XMLUni::fgDOMValidate, doValidation);
-		if (theParser->getDomConfig()->canSetParameter(XMLUni::fgDOMElementContentWhitespace, false))
-			theParser->getDomConfig()->setParameter(XMLUni::fgDOMElementContentWhitespace, false);
+		if (theParser->getDomConfig()->canSetParameter(XMLUni::fgDOMElementContentWhitespace, true))
+			theParser->getDomConfig()->setParameter(XMLUni::fgDOMElementContentWhitespace, true);
+		if (theParser->getDomConfig()->canSetParameter(XMLUni::fgDOMWRTWhitespaceInElementContent, false))
+			theParser->getDomConfig()->setParameter(XMLUni::fgDOMWRTWhitespaceInElementContent, false);
 		theParser->getDomConfig()->setParameter(XMLUni::fgDOMErrorHandler, handler);
 		LocalFileInputSource *fileIS = new LocalFileInputSource(XMLString::transcode(xmlfile));
 		Wrapper4InputSource *wrapper = new Wrapper4InputSource(fileIS, false);
