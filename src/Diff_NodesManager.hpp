@@ -35,6 +35,7 @@ class AtomicInfo {
 		
 		NodeEvent_t myEvent ;
 		int         myMatchID ;
+		std::string tag;
 		
 		float       myWeight ;
 		hash32      mySubtreeHash ; // identify the subtree rooted at node
